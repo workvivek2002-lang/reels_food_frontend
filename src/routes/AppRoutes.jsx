@@ -68,6 +68,15 @@ const AppRoutes = () => {
         }
       />
 
+      <Route
+  path="/food-partner/:id"
+  element={
+    <ProtectedRoute role="partner">
+      <FoodPartnerProfile />
+    </ProtectedRoute>
+  }
+/>
+
       {/* Public Profile - Login Required */}
       <Route
         path="/public/:id"
