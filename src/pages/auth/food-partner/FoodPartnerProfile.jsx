@@ -36,7 +36,7 @@ const FoodPartnerProfile = () => {
     setLoading(true);
     setError("");
     try {
-      const res = await axios.get(`${API}/api/food-partner/${id}`);
+      const res = await axios.get(`${API}/api/food-partner/${id}`,{withCredentials: true});
       const partner = res.data.foodPartner;
       setProfile(partner);
       setReels(partner.foodItems || []);
@@ -58,7 +58,7 @@ const FoodPartnerProfile = () => {
 
     const pollLiveMetrics = async () => {
       try {
-        const res = await axios.get(`${API}/api/food-partner/${id}`);
+        const res = await axios.get(`${API}/api/food-partner/${id}`,{withCredentials:true});
         const freshItems = res.data.foodPartner?.foodItems || [];
 
         setReels((prevReels) => {
